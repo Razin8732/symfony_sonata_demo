@@ -10,6 +10,7 @@ services:
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        public: true        # Makes your service public so that it can be used from the container.
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
@@ -22,3 +23,15 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    # sonata bundle configuration
+
+    # admin.basic_form:
+    #     class: App\Admin\BasicFormAdmin
+    #     tags:
+    #         - { name: sonata.admin, modal_class: App\Entity\BasicForm, manager_type: orm, label: 'Basic Form' }
+    admin.basic-form:
+        class: App\Admin\BasicFormAdmin
+        arguments: [~, App\Entity\BasicForm, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: BasicForm }
