@@ -2,6 +2,7 @@
 
 namespace App\Admin;
 
+use App\Entity\Product;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -31,8 +32,7 @@ final class CustomerAdmin extends AbstractAdmin
         $filter
             ->add('id')
             ->add('name')
-            ->add('email')
-            ->add('createdAt');
+            ->add('email');
     }
 
     protected function configureListFields(ListMapper $list): void
@@ -48,6 +48,16 @@ final class CustomerAdmin extends AbstractAdmin
             ]
         ]);
         $list->add('email');
+        $list->add('products', null, [
+            'field_type' => EntityType::class,
+            'field_options' => [
+                'class' => Product::class,
+                'choice_label' => 'name',
+            ],
+            'route' => [
+                'name' => 'edit',
+            ]
+        ]);
         $list->add('updatedAt', null, [
             'format' => 'Y-m-d H:i:s',
         ]);
@@ -69,6 +79,13 @@ final class CustomerAdmin extends AbstractAdmin
             ->add('id')
             ->add('name')
             ->add('email')
+            ->add('products', null, [
+                'field_type' => EntityType::class,
+                'field_options' => [
+                    'class' => Product::class,
+                    'choice_label' => 'title',
+                ],
+            ])
             ->add('updatedAt')
             ->add('createdAt');
     }

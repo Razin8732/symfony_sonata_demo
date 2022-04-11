@@ -178,4 +178,9 @@ class Product
         $this->setUpdatedAt(new \DateTime());
     }
     /** Image Upload code end*/
+
+    public function __toString(): string
+    {
+        return $this->title;
+    }
 }

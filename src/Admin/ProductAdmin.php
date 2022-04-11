@@ -23,7 +23,7 @@ final class ProductAdmin extends AbstractAdmin
             ->add('description')
             ->add('file', FileType::class, [
                 'required' => false,
-                'help' => '<img src="/uploads/'.$this->getSubject()->getImage().'" style="height: 60px;width:60px;">',
+                'help' => $this->getSubject()->getImage() == '' ? '' : '<img src="/uploads/' . $this->getSubject()->getImage() . '" style="height: 60px;width:60px;">',
                 'help_html' => true,
                 'constraints' => [
                     new FileConstraint([
@@ -74,11 +74,6 @@ final class ProductAdmin extends AbstractAdmin
                     'class' => Customer::class,
                     'choice_label' => 'name',
                 ],
-            ])
-            ->add('createdAt', null, [
-                'widget' => 'single_text',
-                // 'format' => 'Y-m-d H:i:s',
-                'html5' => false,
             ]);
     }
 
