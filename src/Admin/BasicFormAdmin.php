@@ -30,14 +30,20 @@ final class BasicFormAdmin extends AbstractAdmin
     {
         $filter
             ->add('title')
-            // ->add('description')
-            // ->add('created_at')
+            ->add('description')
+            ->add('created_at')
         ;
     }
 
     protected function configureListFields(ListMapper $list): void
     {
-        $list->addIdentifier('title');
+        $list->addIdentifier('title', null, [
+            'route' => [
+                'name' => 'edit',
+            ]
+        ]);
+        $list->add('description');
+        $list->add('created_at');
     }
 
     protected function configureShowFields(ShowMapper $show): void
