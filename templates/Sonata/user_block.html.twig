@@ -1,39 +1,15 @@
-{#
-  This file is part of the Sonata package.
-  (c) Thomas Rabaix <thomas.rabaix@sonata-project.org>
-  For the full copyright and license information, please view the LICENSE
-  file that was distributed with this source code.
-#}
-{# {% extends '@SonataAdmin/standard_layout.html.twig' %} #}
-{# {% extends get_admin_template('standard_layout', admin.code) %} #}
-{# {% extends get_admin_template('base_list_field', admin.code) %} #}
-
 {% block user_block %}
-	{# <div class='testidddd'>TESTETTSTSTS</div>
-    <div>
-    {{dump(app.user)}}
-    </div> #}
-	
-		{# <li class="user-header"> 
-				<img src="" class="img-circle" alt="Avatar"/>
-			<p>{{ app.user }}</p>
-		</li> #}
-
-		{# <li class="user-body"></li> #}
-
-		<li class="user-footer">
-			{# <div class="pull-left"> #}
-				<a href="{{ path('admin_app_user_edit', {'id': app.user.id}) }}" class="btn btn-default btn-flat">
-					<i class="fa fa-user"></i>
-					{{ app.user.email }}</a>
-			{# </div>
-
-			<div class="pull-right"> #}
-				<a href="{{ url('logout') }}" class="btn btn-default btn-flat">
-					<i class="fa fa-sign-out fa-fw"></i>
-					Logout
-					 </a>
-			{# </div> #}
-		</li>
-
+	<li class="user-footer">
+		<a href="{{ path('home') }}" class="btn btn-default btn-flat">
+			Home
+		</a>
+		<a href="{{ path('admin_app_user_edit', {'id': app.user.id}) }}" class="btn btn-default btn-flat">
+			<i class="fa fa-user"></i>
+			{{ app.user.email }}
+		</a>
+		<a href="{{ url('logout') }}" class="btn btn-default btn-flat">
+			<i class="fa fa-sign-out fa-fw"></i>
+			Logout
+		</a>
+	</li>
 {% endblock %}
