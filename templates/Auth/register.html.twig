@@ -31,6 +31,20 @@
 						<div
 							class="form-group mt-3">
 							{# {{ form_label(registrationForm.email, {'attr': {'class': 'form-control-placeholder'}}) }} #}
+							<label for="{{ registrationForm.name.vars.id }}" class="{{ registrationForm.name.vars.required ? 'required' }} form-control-placeholder">
+								Name
+							</label>
+							{{ form_widget(registrationForm.name,{'attr': {'class': 'form-control'}}) }}
+							<small>{{ form_help(registrationForm.name) }}</small>
+
+							<div class="form-error">
+								{{ form_errors(registrationForm.name) }}
+							</div>
+							{# {{ form_row(registrationForm.name) }} #}
+						</div>
+						<div
+							class="form-group mt-3">
+							{# {{ form_label(registrationForm.email, {'attr': {'class': 'form-control-placeholder'}}) }} #}
 							<label for="{{ registrationForm.email.vars.id }}" class="{{ registrationForm.email.vars.required ? 'required' }} form-control-placeholder">
 								Username
 							</label>
