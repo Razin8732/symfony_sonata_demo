@@ -1,5 +1,7 @@
 sonata_admin:
     title: 'Sonata Admin'
+    templates:
+        user_block: Sonata:user_block.html.twig
     dashboard:
         blocks:
             - { type: sonata.admin.block.admin_list, position: center }
@@ -8,14 +10,14 @@ sonata_admin:
                 label: 'Group1'
                 items: 
                     # - admin.basic-form
-                    - admin.customer
+                    - admin.user
                     - admin.product
                 # item:
                 #     label: 'BasicForm'
                 #     route: admin.basic-form
                 # item:
-                #     label: 'Customer'
-                #     route: admin.customer
+                #     label: 'user'
+                #     route: admin.user
                     
     options:
         html5_validate:  true     # enable or disable html5 form validation

@@ -35,11 +35,11 @@ services:
         arguments: [~, App\Entity\BasicForm, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, label: BasicForm }
-    admin.customer:
-        class: App\Admin\CustomerAdmin
-        arguments: [~, App\Entity\Customer, ~]
+    admin.user:
+        class: App\Admin\UserAdmin
+        arguments: [~, App\Entity\User, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Customer }
+            - { name: sonata.admin, manager_type: orm, label: User }
     admin.product:
         class: App\Admin\ProductAdmin
         arguments: [~, App\Entity\Product, ~]

@@ -26,8 +26,8 @@ class Product
 
     private ?UploadedFile $file = null;
 
-    #[ORM\ManyToOne(targetEntity: Customer::class, inversedBy: 'products')]
-    private $customer;
+    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'products')]
+    private $user;
 
     #[ORM\Column(type: 'datetime', nullable: true)]
     private $updatedAt;
@@ -76,18 +76,18 @@ class Product
         return $this;
     }
 
-    public function getCustomer(): ?Customer
+    public function getUser(): ?User
     {
-        return $this->customer;
+        return $this->user;
     }
 
-    public function setCustomer(?Customer $customer): self
+    public function setUser(?User $user): self
     {
-        $this->customer = $customer;
+        $this->user = $user;
 
         return $this;
     }
-
+    
     public function getUpdatedAt(): ?\DateTimeInterface
     {
         return $this->updatedAt;

@@ -2,7 +2,7 @@
 
 namespace App\Admin;
 
-use App\Entity\Customer;
+use App\Entity\User;
 use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
@@ -37,8 +37,8 @@ final class ProductAdmin extends AbstractAdmin
                     ])
                 ],
             ])
-            ->add('customer', null, [
-                'class' => Customer::class,
+            ->add('user', null, [
+                'class' => User::class,
                 'choice_label' => 'name',
             ]);
     }
@@ -68,10 +68,10 @@ final class ProductAdmin extends AbstractAdmin
             ->add('id')
             ->add('title')
             ->add('description')
-            ->add('customer', null, [
+            ->add('user', null, [
                 'field_type' => EntityType::class,
                 'field_options' => [
-                    'class' => Customer::class,
+                    'class' => User::class,
                     'choice_label' => 'name',
                 ],
             ]);
@@ -84,10 +84,10 @@ final class ProductAdmin extends AbstractAdmin
                 'name' => 'edit',
             ]
         ]);
-        $list->add('customer', 'entity', [
+        $list->add('user', 'entity', [
             'field_type' => EntityType::class,
             'field_options' => [
-                'class' => Customer::class,
+                'class' => User::class,
                 'choice_label' => 'name',
             ],
             'route' => [

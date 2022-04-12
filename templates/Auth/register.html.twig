@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register
+{% endblock %}
+
+{% block body %}
+	<div class="container-fluid">
+		<div class="row justify-content-center">
+			<div class="col-md-7 col-lg-5">
+				<div class="wrap">
+					<div class="img" style="background-image: url(images/xbg-1.jpg.pagespeed.ic.EtoN2PmO7Y.webp);"></div>
+					<div class="login-wrap p-4 p-md-5">
+						<div class="d-flex">
+							<div class="w-100">
+								<h3 class="mb-4">Sign In</h3>
+							</div>
+							<div class="w-100">
+								<p class="social-media d-flex justify-content-end">
+									<a href="#" class="social-icon d-flex align-items-center justify-content-center">
+										<span class="fa fa-facebook"></span>
+									</a>
+									<a href="#" class="social-icon d-flex align-items-center justify-content-center">
+										<span class="fa fa-twitter"></span>
+									</a>
+								</p>
+							</div>
+						</div>
+						<h1>Register</h1>
+
+						{{ form_start(registrationForm) }}
+						<div
+							class="form-group mt-3">
+							{# {{ form_label(registrationForm.email, {'attr': {'class': 'form-control-placeholder'}}) }} #}
+							<label for="{{ registrationForm.email.vars.id }}" class="{{ registrationForm.email.vars.required ? 'required' }} form-control-placeholder">
+								Username
+							</label>
+							{{ form_widget(registrationForm.email,{'attr': {'class': 'form-control'}}) }}
+							<small>{{ form_help(registrationForm.email) }}</small>
+
+							<div class="form-error">
+								{{ form_errors(registrationForm.email) }}
+							</div>
+							{# {{ form_row(registrationForm.email) }} #}
+						</div>
+						<div class="form-group mt-3">
+							<label for="{{ registrationForm.plainPassword.vars.id }}" class="{{ registrationForm.plainPassword.vars.required ? 'required' }} form-control-placeholder">
+								Password
+							</label>
+							{{ form_widget(registrationForm.plainPassword,{'attr': {'class': 'form-control'}}) }}
+							<small>{{ form_help(registrationForm.plainPassword) }}</small>
+
+							<div class="form-error">
+								{{ form_errors(registrationForm.plainPassword) }}
+							</div>
+							{# {{ form_row(registrationForm.plainPassword, { label: 'Password' }) }} #}
+						</div>
+						{{ form_row(registrationForm.agreeTerms,{'attr': {'class': 'form-check-inline ms-2 mt-3'}}) }}
+						<div class="form-group mt-3">
+							<button type="submit" class="form-control btn btn-primary rounded submit px-3">Register</button>
+						</div>
+						{{ form_end(registrationForm) }}
+					{% endblock %}
