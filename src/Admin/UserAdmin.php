@@ -11,7 +11,7 @@ use Sonata\AdminBundle\Show\ShowMapper;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 
-final class CustomerAdmin extends AbstractAdmin
+final class UserAdmin extends AbstractAdmin
 {
     protected function configureFormFields(FormMapper $form): void
     {
